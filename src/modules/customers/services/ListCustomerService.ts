@@ -16,9 +16,7 @@ class ListCustomerService {
   public async execute(): Promise<IPaginateCustomer> {
     const customersRepository = getCustomRepository(CustomersRepository);
 
-    const customers = await customersRepository
-      .createQueryBuilder('customers')
-      .paginate();
+    const customers = await customersRepository.createQueryBuilder().paginate();
 
     return customers as IPaginateCustomer;
   }
